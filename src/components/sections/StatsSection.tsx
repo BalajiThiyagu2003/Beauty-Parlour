@@ -17,7 +17,7 @@ export function StatsSection() {
   const counts = [count1, count2, count3, count4];
 
   return (
-    <section ref={ref} className="py-12 sm:py-16 bg-royal-darker border-y border-royal-border">
+    <section ref={ref} className="py-12 sm:py-16 bg-pearl-50 border-y border-pearl-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center reveal-stagger" style={{ opacity: 1 }}>
           {stats.map((stat, i) => (
@@ -26,11 +26,11 @@ export function StatsSection() {
               className={`transition-all duration-500 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-gold-gradient animate-pulse-glow">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black animate-pulse-glow">
                 {counts[i]}
-                <span className="text-gold-400">{stat.suffix}</span>
+                <span className="text-black">{stat.suffix}</span>
               </div>
-              <div className="text-gray-400 font-medium mt-1 text-sm sm:text-base uppercase tracking-wider">
+              <div className="text-black font-semibold mt-1 text-sm sm:text-base uppercase tracking-wider">
                 {stat.label}
               </div>
             </div>

@@ -4,51 +4,53 @@ import { faStore, faChartLine } from '@fortawesome/free-solid-svg-icons';
 
 export function FranchiseSection() {
   return (
-    <section className="py-16 sm:py-20 bg-royal-darker border-y border-royal-border">
+    <section className="py-20 bg-pearl-50 border-y border-pearl-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-display text-2xl sm:text-3xl font-semibold text-gold-gradient mb-4">
-              Join the growth story: Own a Salon
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="text-center lg:text-left">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-black mb-6 uppercase tracking-tighter">
+              Join our legacy: Own a Salon
             </h2>
-            <p className="text-gray-400 leading-relaxed mb-6">
-              Tap into the salon industry’s growth with our proven model that ensures swift and sustainable success. 
-              Be part of a trusted brand and a supportive network.
+            <p className="text-black text-lg leading-relaxed mb-8 max-w-xl">
+              Tap into the beauty industry’s growth with our proven model that ensures swift and sustainable success. 
+              Be part of a trusted brand and a supportive partner network.
             </p>
-            <div className="flex flex-wrap gap-6 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-lg bg-gold-gradient/20 border border-gold-600/40 flex items-center justify-center">
-                  <FontAwesomeIcon icon={faStore} className="w-6 h-6 text-gold-400" />
+            <div className="flex flex-wrap gap-8 mb-10 justify-center lg:justify-start">
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
+                  <FontAwesomeIcon icon={faStore} className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Multiple locations</div>
-                  <div className="text-sm text-gray-400">Scale with support</div>
+                  <div className="font-bold text-black text-lg">Multiple locations</div>
+                  <div className="text-sm text-black/60 uppercase font-semibold">Scale with support</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-lg bg-gold-gradient/20 border border-gold-600/40 flex items-center justify-center">
-                  <FontAwesomeIcon icon={faChartLine} className="w-6 h-6 text-gold-400" />
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent">
+                  <FontAwesomeIcon icon={faChartLine} className="w-7 h-7" />
                 </div>
                 <div>
-                  <div className="font-semibold text-white">Proven ROI</div>
-                  <div className="text-sm text-gray-400">Tried business model</div>
+                  <div className="font-bold text-black text-lg">Proven ROI</div>
+                  <div className="text-sm text-black/60 uppercase font-semibold">Tried business model</div>
                 </div>
               </div>
             </div>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center font-medium rounded-lg px-6 py-3 text-base bg-gold-gradient text-royal-dark hover:opacity-95 transition-opacity"
+              className="btn-primary px-10 py-4 text-lg inline-flex"
             >
               Enquire now
             </Link>
           </div>
-          <div className="bg-royal-card rounded-2xl p-8 border border-royal-border">
-            <h3 className="font-display text-lg font-semibold text-gold-400 mb-4">Why franchise with us?</h3>
-            <ul className="space-y-3 text-gray-300 text-sm sm:text-base">
-              <li>• Training and ongoing support</li>
-              <li>• Brand recognition and marketing</li>
-              <li>• Standardized processes and quality</li>
-              <li>• Access to premium products</li>
+          <div className="bg-white rounded-[40px] p-10 border border-pearl-200 shadow-xl shadow-pearl-100/50 transform rotate-2">
+            <h3 className="font-display text-xl font-bold text-black mb-6 uppercase tracking-wider">Why franchise with us?</h3>
+            <ul className="space-y-4">
+              {['Training and ongoing support', 'Brand recognition and marketing', 'Standardized processes and quality', 'Access to premium products'].map((item) => (
+                <li key={item} className="flex items-center gap-3 text-black font-medium">
+                  <div className="w-2 h-2 rounded-full bg-accent shrink-0" />
+                  {item}
+                </li>
+              ))}
             </ul>
           </div>
         </div>

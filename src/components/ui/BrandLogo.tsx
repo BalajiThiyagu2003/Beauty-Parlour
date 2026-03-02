@@ -8,34 +8,52 @@ interface BrandLogoProps {
 /**
  * ButyParlar brand logo – consistent mark across the site
  */
-export function BrandLogo({ className = 'w-10 h-10', link = true }: BrandLogoProps) {
+export function BrandLogo({ className = 'w-10 h-10', link = false }: BrandLogoProps) {
   const logo = (
     <svg
-      viewBox="0 0 48 48"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden
     >
-      <circle cx="24" cy="24" r="22" fill="url(#brand-gradient)" stroke="#b8860b" strokeWidth="1.5" />
+      {/* Outer Ring */}
+      <circle cx="50" cy="50" r="48" stroke="url(#logo-gradient)" strokeWidth="4" />
+      
+      {/* Stylized 'B' with floral curves */}
       <path
-        d="M24 14c-2 0-4 1.5-5 3.5l-2 4c-.5 1 .2 2 1.3 2h11.4c1.1 0 1.8-1 1.3-2l-2-4C28 15.5 26 14 24 14z"
-        fill="#fdf8e8"
+        d="M35 25V75M35 25H55C65 25 70 32 70 40C70 48 65 50 55 50M35 50H58C68 50 75 58 75 67C75 76 68 75 58 75H35"
+        stroke="url(#logo-gradient)"
+        strokeWidth="6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
-      <ellipse cx="24" cy="28" rx="6" ry="4" fill="#fdf8e8" />
-      <path d="M18 32v4c0 1 1 2 2 2h8c1 0 2-1 2-2v-4" fill="#fdf8e8" />
+      
+      {/* Decorative floral swirl */}
+      <path
+        d="M65 20C75 25 80 40 75 55C70 70 55 80 40 75"
+        stroke="url(#logo-accent-gradient)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeDasharray="4 4"
+      />
+
       <defs>
-        <linearGradient id="brand-gradient" x1="8" y1="8" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#f0e0a8" />
-          <stop offset="0.5" stopColor="#d4a72a" />
-          <stop offset="1" stopColor="#b8860b" />
+        <linearGradient id="logo-gradient" x1="0" y1="0" x2="100" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#D4AF37" /> {/* Gold */}
+          <stop offset="0.5" stopColor="#E6BE8A" /> {/* Rose Gold */}
+          <stop offset="1" stopColor="#B8860B" /> {/* Dark Gold */}
+        </linearGradient>
+        <linearGradient id="logo-accent-gradient" x1="100" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#FFD700" />
+          <stop offset="1" stopColor="#B8860B" />
         </linearGradient>
       </defs>
     </svg>
   );
 
   if (link) {
-    return <Link to="/" aria-label="ButyParlar Home">{logo}</Link>;
+    return <Link to="/" aria-label="ButyParlar Home" className="inline-block">{logo}</Link>;
   }
   return logo;
 }

@@ -10,6 +10,8 @@ import {
   ContactPage,
 } from './pages';
 
+import { WhatsAppButton } from './components/WhatsAppButton';
+
 function App() {
   return (
     <BrowserRouter>
@@ -24,6 +26,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           </Route>
         </Routes>
+        <WhatsAppButton />
       </BookingProvider>
     </BrowserRouter>
   );

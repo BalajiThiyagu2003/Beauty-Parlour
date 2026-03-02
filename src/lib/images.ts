@@ -1,3 +1,10 @@
+import hairStyling from '../assets/beauty/hair-styling.png';
+import bridalMakeup from '../assets/beauty/bridal-makeup.png';
+import spaFacial from '../assets/beauty/spa-facial.png';
+import mensHaircut from '../assets/beauty/mens-haircut.png';
+import mensBeard from '../assets/beauty/mens-beard.png';
+import nailsService from '../assets/beauty/nails.png';
+
 /**
  * Hero: Royal theme. Service/partner: Unsplash (Unsplash License).
  * Modern girls reference & branded product images for Trusted Partners.
@@ -9,16 +16,18 @@ const U = (id: string, w = 800) =>
 const brandLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
 
 export const images = {
-  hero: '/hero-royal.png',
-  heroMobile: '/hero-royal.png',
+  hero: hairStyling,
+  heroMobile: hairStyling,
   heroFallback: U('1560066984-138dadb4c035', 1400),
   about: U('1522337360788-8b13dee7a37e', 900),
-  serviceHair: U('1595476108010-4f128def2581', 600),
-  serviceSkin: U('1570179641594-0d87a3b45178', 600),
-  serviceBridal: U('1512496015852-a1c1b5557340', 600),
-  serviceMakeup: U('1522337360788-8b13dee7a37e', 600),
-  serviceNails: U('1595476108010-4f128def2581', 500),
-  serviceSpa: U('1570179641594-0d87a3b45178', 600),
+  serviceHair: hairStyling,
+  serviceSkin: spaFacial,
+  serviceBridal: bridalMakeup,
+  serviceMakeup: bridalMakeup,
+  serviceNails: nailsService,
+  serviceSpa: spaFacial,
+  serviceMensHair: mensHaircut,
+  serviceMensBeard: mensBeard,
   /* Modern girls / women reference (beauty, lifestyle) */
   modernGirl1: U('1494790108377-768d249a6b82', 600),
   modernGirl2: U('1524504388180-1c735da97452', 600),

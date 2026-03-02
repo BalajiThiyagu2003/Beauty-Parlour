@@ -49,32 +49,37 @@ export function Calendar({ value, onChange, minDate, maxDate, className }: Calen
   };
 
   return (
-    <div className={cn('bg-royal-card rounded-xl border border-royal-border shadow-sm overflow-hidden', className)}>
-      <div className="flex items-center justify-between p-3 border-b border-royal-border bg-royal-dark/50">
+    <div className={cn('bg-white rounded-[2rem] border-2 border-pearl-200 shadow-[0_20px_50px_rgba(0,0,0,0.1)] overflow-hidden', className)}>
+      <div className="flex items-center justify-between p-6 border-b border-pearl-100 bg-white">
         <button
           type="button"
           onClick={() => setViewDate(subMonths(viewDate, 1))}
-          className="p-2 rounded-lg text-gray-400 hover:text-gold-400 hover:bg-royal-border transition-colors"
+          className="w-10 h-10 flex items-center justify-center rounded-full text-black hover:bg-accent hover:text-white transition-all duration-300"
           aria-label="Previous month"
         >
           <FontAwesomeIcon icon={faChevronLeft} className="w-4 h-4" />
         </button>
-        <span className="font-semibold text-white">
-          {format(viewDate, 'MMMM yyyy')}
-        </span>
+        <div className="text-center">
+          <span className="block font-display font-extrabold text-black uppercase tracking-[0.2em] text-sm">
+            {format(viewDate, 'MMMM')}
+          </span>
+          <span className="block font-display font-bold text-black/40 text-[10px] tracking-[0.3em]">
+            {format(viewDate, 'yyyy')}
+          </span>
+        </div>
         <button
           type="button"
           onClick={() => setViewDate(addMonths(viewDate, 1))}
-          className="p-2 rounded-lg text-gray-400 hover:text-gold-400 hover:bg-royal-border transition-colors"
+          className="w-10 h-10 flex items-center justify-center rounded-full text-black hover:bg-accent hover:text-white transition-all duration-300"
           aria-label="Next month"
         >
           <FontAwesomeIcon icon={faChevronRight} className="w-4 h-4" />
         </button>
       </div>
-      <div className="p-3">
-        <div className="grid grid-cols-7 gap-1 text-center">
-          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((d) => (
-            <div key={d} className="text-xs font-medium text-gold-500 py-1">
+      <div className="p-6">
+        <div className="grid grid-cols-7 gap-2 text-center">
+          {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((d) => (
+            <div key={d} className="text-[10px] font-black text-black/30 py-4 tracking-widest">
               {d}
             </div>
           ))}
@@ -91,15 +96,18 @@ export function Calendar({ value, onChange, minDate, maxDate, className }: Calen
                   disabled={disabled}
                   onClick={() => !disabled && onChange(d)}
                   className={cn(
-                    'aspect-square flex items-center justify-center text-sm rounded-lg transition-colors',
-                    !currentMonth && 'text-gray-500',
-                    currentMonth && !selected && !today && 'text-white hover:bg-royal-border',
-                    today && !selected && 'font-semibold text-gold-400 bg-royal-border',
-                    selected && 'bg-gold-gradient text-royal-dark font-semibold',
-                    disabled && 'opacity-40 cursor-not-allowed'
+                    'aspect-square flex flex-col items-center justify-center text-sm rounded-2xl transition-all duration-500 relative group',
+                    !currentMonth && 'text-black/10',
+                    currentMonth && !selected && !today && 'text-black font-bold hover:bg-accent/10 hover:text-accent hover:scale-110',
+                    today && !selected && 'font-black text-accent bg-accent/5 ring-2 ring-accent/20',
+                    selected && 'bg-black text-white font-black shadow-2xl shadow-black/30 scale-110 translate-y-[-4px]',
+                    disabled && 'opacity-10 cursor-not-allowed grayscale'
                   )}
                 >
-                  {format(d, 'd')}
+                  <span className="relative z-10">{format(d, 'd')}</span>
+                  {selected && (
+                    <div className="absolute inset-0 bg-black rounded-2xl animate-pulse -z-0 opacity-10" />
+                  )}
                 </button>
               );
             })

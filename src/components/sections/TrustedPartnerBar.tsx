@@ -12,13 +12,13 @@ const brandedPartners = [
 
 export function TrustedPartnerBar() {
   return (
-    <section className="py-10 sm:py-12 bg-royal-dark border-y border-royal-border overflow-hidden">
+    <section className="py-10 sm:py-12 bg-white border-y border-pearl-200 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <RevealSection className="text-center mb-8">
-          <p className="text-sm font-medium uppercase tracking-wider text-gold-500 mb-1 animate-fade-in-up">
-            Trusted Partner
+          <p className="text-sm font-medium uppercase tracking-wider text-accent mb-1 animate-fade-in-up">
+            Our Trusted Partners
           </p>
-          <h2 className="font-display text-xl sm:text-2xl font-semibold text-gold-gradient animate-fade-in-up" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
+          <h2 className="font-display text-xl sm:text-2xl font-bold text-black animate-fade-in-up uppercase tracking-widest" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
             Brands We Use & Trust
           </h2>
         </RevealSection>
@@ -26,28 +26,28 @@ export function TrustedPartnerBar() {
           {brandedPartners.map((partner, i) => (
             <div
               key={partner.name}
-              className="group flex flex-col items-center p-4 rounded-xl bg-royal-card border border-royal-border hover:border-gold-600/50 hover-lift transition-all duration-300 animate-scale-in"
+              className="group flex flex-col items-center p-4 rounded-3xl bg-white border border-pearl-200 hover:border-accent/30 hover:shadow-2xl hover:shadow-accent/5 transition-all duration-300 animate-scale-in"
               style={{ animationDelay: `${i * 0.06}s`, animationFillMode: 'both' }}
             >
               <div
-                className="partner-logo w-20 h-20 sm:w-24 sm:h-24 rounded-xl bg-white/5 border border-royal-border flex items-center justify-center p-2 mb-3 overflow-hidden group-hover:animate-shimmer relative"
+                className="partner-logo w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-white border border-pearl-100 flex items-center justify-center p-3 mb-4 overflow-hidden relative"
                 data-state="loaded"
               >
                 <img
                   src={partner.image}
                   alt={partner.name}
-                  className="partner-img max-w-full max-h-full object-contain"
+                  className="partner-img max-w-full max-h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-500 scale-90 group-hover:scale-110"
                   onError={(e) => {
                     const wrap = e.currentTarget.closest('.partner-logo');
                     if (wrap) wrap.setAttribute('data-state', 'error');
                   }}
                 />
-                <span className="partner-fallback absolute inset-0 hidden items-center justify-center text-gold-500 text-xs font-medium text-center p-1">
+                <span className="partner-fallback absolute inset-0 hidden items-center justify-center text-accent text-xs font-bold text-center p-1 uppercase">
                   {partner.name}
                 </span>
               </div>
-              <span className="font-medium text-white text-sm text-center">{partner.name}</span>
-              <span className="text-gray-500 text-xs text-center mt-0.5">{partner.tagline}</span>
+              <span className="font-bold text-black text-sm text-center uppercase tracking-tighter">{partner.name}</span>
+              <span className="text-black/60 text-[10px] text-center mt-1 uppercase font-semibold">{partner.tagline}</span>
             </div>
           ))}
         </RevealSection>

@@ -37,51 +37,55 @@ export function TestimonialsSection() {
   };
 
   return (
-    <section className="py-16 sm:py-20 bg-royal-dark border-y border-royal-border">
+    <section className="py-20 bg-white border-y border-pearl-200">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        <h2 className="font-display text-2xl sm:text-3xl font-semibold text-gold-gradient text-center mb-4">
-          Join Our Happy Clients
+        <h2 className="font-display text-3xl sm:text-4xl font-bold text-black text-center mb-4 uppercase tracking-tighter">
+          Our Happy Clients
         </h2>
-        <p className="text-gray-400 text-center mb-10 text-sm sm:text-base">
-          See what our customers say about their experience.
+        <p className="text-black/70 text-center mb-12 text-lg font-medium">
+          Real experiences from those who trust ButyParlar.
         </p>
 
-        <div className="relative bg-royal-card rounded-2xl border border-royal-border shadow-lg p-8 sm:p-10 min-h-[240px]">
-          <FontAwesomeIcon icon={faQuoteLeft} className="absolute top-6 left-6 w-8 h-8 text-gold-600/60" aria-hidden />
-          <div className="relative">
+        <div className="relative bg-white rounded-[40px] border border-pearl-200 shadow-2xl shadow-pearl-100/50 p-8 sm:p-14 min-h-[300px] overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-bl-[100px]" />
+          <FontAwesomeIcon icon={faQuoteLeft} className="absolute top-10 left-10 w-12 h-12 text-accent/10" aria-hidden />
+          <div className="relative z-10">
             {testimonials.map((t, i) => (
               <div
                 key={t.name}
-                className={`transition-opacity duration-300 ${i === active ? 'opacity-100' : 'opacity-0 absolute inset-0 pointer-events-none'}`}
+                className={`transition-all duration-700 transform ${i === active ? 'opacity-100 translate-x-0' : 'opacity-0 absolute inset-0 pointer-events-none translate-x-12'}`}
                 style={i === active ? {} : { visibility: 'hidden' as const }}
               >
-                <p className="text-gray-300 text-base sm:text-lg leading-relaxed pl-6">
-                  {t.quote}
+                <p className="text-black text-lg sm:text-xl font-medium leading-relaxed italic mb-8">
+                  "{t.quote}"
                 </p>
-                <div className="mt-6 pl-6">
-                  <div className="font-semibold text-white">{t.name}</div>
-                  <div className="text-sm text-gold-500">{t.role}</div>
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-1 rounded-full bg-accent" />
+                  <div>
+                    <div className="font-bold text-black text-lg">{t.name}</div>
+                    <div className="text-sm text-accent font-bold uppercase tracking-wider">{t.role}</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex items-center justify-between mt-8 pt-6 border-t border-royal-border">
+          <div className="flex items-center justify-between mt-12 pt-8 border-t border-pearl-100">
             <button
               type="button"
               onClick={() => go(-1)}
-              className="p-2 rounded-full text-gray-400 hover:text-gold-400 transition-colors"
+              className="w-12 h-12 rounded-full border border-pearl-200 flex items-center justify-center text-black hover:bg-accent hover:text-white hover:border-accent transition-all duration-300"
               aria-label="Previous testimonial"
             >
               <FontAwesomeIcon icon={faChevronLeft} className="w-5 h-5" />
             </button>
-            <div className="flex gap-2">
+            <div className="flex gap-3">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
                   type="button"
                   onClick={() => setActive(i)}
-                  className={`w-2.5 h-2.5 rounded-full transition-colors ${i === active ? 'bg-gold-500' : 'bg-royal-border hover:bg-gold-600/50'}`}
+                  className={`h-2 rounded-full transition-all duration-300 ${i === active ? 'w-8 bg-accent' : 'w-2 bg-pearl-200 hover:bg-pearl-300'}`}
                   aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
@@ -89,7 +93,7 @@ export function TestimonialsSection() {
             <button
               type="button"
               onClick={() => go(1)}
-              className="p-2 rounded-full text-gray-400 hover:text-gold-400 transition-colors"
+              className="w-12 h-12 rounded-full border border-pearl-200 flex items-center justify-center text-black hover:bg-accent hover:text-white hover:border-accent transition-all duration-300"
               aria-label="Next testimonial"
             >
               <FontAwesomeIcon icon={faChevronRight} className="w-5 h-5" />
@@ -97,9 +101,9 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-12">
           <Link to="/feedback">
-            <span className="inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium border-2 border-gold-500 text-gold-400 hover:bg-gold-500/10 transition-colors">
+            <span className="btn-secondary px-8 py-3 text-sm">
               Share your feedback
             </span>
           </Link>

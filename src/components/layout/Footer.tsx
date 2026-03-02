@@ -15,24 +15,24 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-royal-darker border-t border-royal-border text-gray-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <Link to="/" className="inline-flex items-center gap-2 mb-4">
+    <footer className="bg-pearl-50 border-t border-pearl-200 text-black">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 sm:gap-16">
+          <div className="space-y-6">
+            <Link to="/" className="inline-flex items-center gap-3">
               <BrandLogo />
-              <span className="font-display text-lg font-semibold text-gold-gradient">ButyParlar</span>
+              <span className="font-display text-2xl font-bold text-black uppercase tracking-tighter">ButyParlar</span>
             </Link>
-            <p className="text-sm text-gray-400 max-w-xs">
-              Your trusted beauty and parlour destination. We bring out the best in you.
+            <p className="text-black/70 max-w-xs leading-relaxed">
+              Your trusted beauty and parlour destination. We specialize in bringing out the royal elegance in every client.
             </p>
           </div>
           <div>
-            <h3 className="font-display font-semibold text-white mb-3">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="font-display font-bold text-black uppercase tracking-wider mb-6">Quick Links</h3>
+            <ul className="grid grid-cols-1 gap-4">
               {footerLinks.map((item) => (
                 <li key={item.path}>
-                  <Link to={item.path} className="text-sm text-gray-400 hover:text-gold-300 hover:underline">
+                  <Link to={item.path} className="text-black/80 hover:text-accent font-medium transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -40,24 +40,30 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-display font-semibold text-white mb-3">Contact</h3>
-            <ul className="space-y-2 text-sm text-gray-400">
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4 text-gold-400" />
-                <span>123 Beauty Street, Your City</span>
+            <h3 className="font-display font-bold text-black uppercase tracking-wider mb-6">Contact info</h3>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} className="w-4 h-4" />
+                </div>
+                <span className="text-black/80 font-medium">123 Beauty Street, Your City</span>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faPhone} className="w-4 text-gold-400" />
-                <a href={TEL_HREF} className="hover:text-gold-300">{PHONE_DISPLAY}</a>
+              <li className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                  <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
+                </div>
+                <a href={TEL_HREF} className="text-black/80 hover:text-accent font-medium">{PHONE_DISPLAY}</a>
               </li>
-              <li className="flex items-center gap-2">
-                <FontAwesomeIcon icon={faEnvelope} className="w-4 text-gold-400" />
-                <a href="mailto:hello@butyparlar.com" className="hover:text-gold-300">hello@butyparlar.com</a>
+              <li className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                  <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+                </div>
+                <a href="mailto:hello@butyparlar.com" className="text-black/80 hover:text-accent font-medium">hello@butyparlar.com</a>
               </li>
             </ul>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-royal-border text-center text-sm text-gray-500">
+        <div className="mt-16 pt-8 border-t border-pearl-200 text-center text-sm font-medium text-black/50">
           © {new Date().getFullYear()} ButyParlar. All rights reserved.
         </div>
       </div>
