@@ -24,7 +24,7 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="ButyParlar Home">
           <BrandLogo />
-          <span className="font-display text-2xl font-bold text-black uppercase tracking-tighter">ButyParlar</span>
+          <span className="font-display text-2xl font-bold text-black uppercase tracking-tighter">Beauty & Parlour</span>
         </Link>
 
         <NavigationMenu.Root className="hidden md:flex items-center gap-2">
